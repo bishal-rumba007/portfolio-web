@@ -16,7 +16,9 @@ class _HomePageState extends State<HomePage> {
       padding: EdgeInsets.symmetric(horizontal: 120, vertical: 20),
       constraints: BoxConstraints(maxHeight: 989, minHeight: 700),
       width: double.infinity,
-      decoration: BoxDecoration(color: Colors.blueGrey.shade300),
+      decoration: BoxDecoration(
+        color: Theme.of(context).colorScheme.background,
+      ),
       child: Column(
         children: [
           Container(

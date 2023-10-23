@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio_web_app/src/screens/main_site.dart';
+import 'package:portfolio_web_app/src/responsive/export.dart';
+import 'package:portfolio_web_app/src/themes/theme.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -9,11 +10,12 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
+      theme: AppTheme().darkMode,
+      home: const ResponsiveLayout(
+        mobileScaffold: MobileScaffoldView(),
+        tabletScaffold: TabletScaffoldView(),
+        desktopScaffold: DesktopScaffoldView(),
       ),
-      home: const MainSite(),
     );
   }
 }
