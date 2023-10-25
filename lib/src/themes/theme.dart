@@ -6,8 +6,9 @@ class AppTheme {
   ThemeData lightMode = ThemeData(
     useMaterial3: true,
     brightness: Brightness.light,
-    colorScheme: const ColorScheme.light(
-      background: Colors.white,
+    colorScheme: ColorScheme.light(
+      background: Color(0xFFfbfbf2),
+      // background: Color.fromARGB(255, 240, 239, 232),
       primary: AppColor.purpleColor,
       secondary: AppColor.roseColor,
     ),
@@ -72,12 +73,12 @@ class AppTheme {
         fontWeight: FontWeight.w600,
         color: Colors.white,
       ),
-      bodyMedium:GoogleFonts.raleway(
+      bodyMedium: GoogleFonts.raleway(
         fontSize: 14,
         fontWeight: FontWeight.w500,
-        color: Colors.white,
+        color: Colors.white.withOpacity(0.5),
       ),
-      bodySmall:  GoogleFonts.raleway(
+      bodySmall: GoogleFonts.raleway(
         fontSize: 12,
         fontWeight: FontWeight.w400,
         color: Colors.white,
@@ -101,7 +102,7 @@ class AppTheme {
     outlinedButtonTheme: OutlinedButtonThemeData(
       style: ButtonStyle(
         backgroundColor: MaterialStateProperty.resolveWith<Color>(
-              (Set<MaterialState> states) {
+          (Set<MaterialState> states) {
             if (states.contains(MaterialState.disabled)) {
               return AppColor.darkColor.withOpacity(0.3);
             }
@@ -119,7 +120,7 @@ class AppTheme {
           const EdgeInsets.symmetric(horizontal: 10.0, vertical: 8.0),
         ),
         foregroundColor: MaterialStateProperty.resolveWith<Color>(
-              (Set<MaterialState> states) {
+          (Set<MaterialState> states) {
             if (states.contains(MaterialState.disabled)) {
               return Colors.grey;
             }
@@ -134,11 +135,11 @@ class AppTheme {
         ),
         shape: MaterialStateProperty.all<RoundedRectangleBorder>(
           RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(8.0), // Adjust the borderRadius value as needed
+            borderRadius: BorderRadius.circular(
+                8.0), // Adjust the borderRadius value as needed
           ),
         ),
       ),
     ),
-
   );
 }
