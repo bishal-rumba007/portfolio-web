@@ -141,5 +141,20 @@ class AppTheme {
         ),
       ),
     ),
+    chipTheme: ChipThemeData(
+      backgroundColor: AppColor.purpleColor.withOpacity(0.1),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(8),
+      ),
+      side: BorderSide.none,
+      labelStyle: GoogleFonts.raleway(
+        fontSize: 12,
+        fontWeight: FontWeight.w700,
+        color: AppColor.purpleColor.withOpacity(0.7),
+      ),
+      labelPadding: const EdgeInsets.symmetric(
+          horizontal: 4, vertical: 1
+      ),
+    )
   );
 }
