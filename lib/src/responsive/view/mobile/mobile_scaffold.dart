@@ -227,8 +227,9 @@ class _MobileScaffoldViewState extends State<MobileScaffoldView> {
             ),
             const PortfolioSection(),
             SizedBox(height: 0.078 * h,),
-            const SkillSection()
-            // const SizedBox(height: 400,),
+            const SkillSection(),
+            SizedBox(height: 0.078 * h,),
+            const CareerSection(),
           ],
         ),
       ),
