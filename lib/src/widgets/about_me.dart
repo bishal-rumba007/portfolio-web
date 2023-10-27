@@ -34,8 +34,8 @@ class AboutMeSection extends StatelessWidget {
           ),
           Container(
             padding: const EdgeInsets.all(10),
-            height: 0.07 * h,
-            width: 0.45 * w,
+            height: 0.06 * h,
+            width: 0.42 * w,
             decoration: BoxDecoration(
               color: Theme.of(context).colorScheme.primary.withOpacity(0.1),
               borderRadius: BorderRadius.circular(0.02 * w),

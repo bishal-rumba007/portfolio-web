@@ -25,7 +25,7 @@ class PortfolioSection extends StatelessWidget {
                 alignment: Alignment.topLeft,
                 child: Container(
                   padding: const EdgeInsets.all(10),
-                  height: 0.07 * h,
+                  height: 0.06 * h,
                   width: 0.4 * w,
                   decoration: BoxDecoration(
                     color: Theme.of(context).colorScheme.primary.withOpacity(0.1),
