@@ -14,6 +14,27 @@ class MobileScaffoldView extends StatefulWidget {
 }
 
 class _MobileScaffoldViewState extends State<MobileScaffoldView> {
+  ScrollController scrollController = ScrollController();
+  bool showBtn = false;
+  @override
+  void initState() {
+    scrollController.addListener(() {
+      double showOffset = 5.0;
+      if(scrollController.offset > showOffset){
+        showBtn = true;
+        setState(() {
+          //update state
+        });
+      }else{
+        showBtn = false;
+        setState(() {
+          //update state
+        });
+      }
+    });
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -22,6 +43,7 @@ class _MobileScaffoldViewState extends State<MobileScaffoldView> {
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.background,
       body: SingleChildScrollView(
+        controller: scrollController,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
@@ -32,43 +54,41 @@ class _MobileScaffoldViewState extends State<MobileScaffoldView> {
               padding: EdgeInsets.symmetric(horizontal: 0.2 * w),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Container(
                     height: 0.16 * w,
                     width: 0.16 * w,
-                    padding: const EdgeInsets.all(14),
                     decoration: BoxDecoration(
                         color: AppColor.avatarBackground,
                         borderRadius: BorderRadius.circular(0.3 * w)),
-                    child: SvgPicture.asset(
-                      "assets/icons/linkedin.svg",
-                    ),
-                  ),
-                  Container(
-                    height: 0.16 * w,
-                    width: 0.16 * w,
-                    decoration: BoxDecoration(
-                        color: AppColor.avatarBackground,
-                        borderRadius: BorderRadius.circular(30)),
-                    child: SvgPicture.asset(
-                      "assets/icons/github.svg",
-                      colorFilter: ColorFilter.mode(
-                        Theme.of(context).colorScheme.background,
-                        BlendMode.color,
+                    child: Center(
+                      child: Icon(
+                        FontAwesomeIcons.linkedinIn,
+                        color: Theme.of(context).colorScheme.background,
                       ),
-                      height: 0.04 * w,
-                      width: 0.04 * w,
+                    ),
+                  ),
+                  SizedBox(
+                    height: 0.18 * w,
+                    width: 0.16 * w,
+                    child: Icon(
+                      FontAwesomeIcons.github,
+                      color: AppColor.avatarBackground,
+                      size: 0.16 * w,
                     ),
                   ),
                   Container(
-                    padding: const EdgeInsets.all(10),
                     height: 0.16 * w,
                     width: 0.16 * w,
                     decoration: BoxDecoration(
                         color: AppColor.avatarBackground,
                         borderRadius: BorderRadius.circular(0.3 * w)),
-                    child: SvgPicture.asset(
-                      "assets/icons/medium.svg",
+                    child: Center(
+                      child: Icon(
+                        FontAwesomeIcons.medium,
+                        color: Theme.of(context).colorScheme.background,
+                      ),
                     ),
                   ),
                 ],
@@ -198,15 +218,14 @@ class _MobileScaffoldViewState extends State<MobileScaffoldView> {
                           width: 0.02 * w,
                         ),
                         Text(
-                          "Contact Me",
-                          style: GoogleFonts.raleway(
-                            fontWeight: FontWeight.w600,
-                            fontSize: 14,
-                            color: Theme.of(context)
-                                .colorScheme
-                                .primary
-                                .withOpacity(0.5),
-                          ),
+                            "Contact Me",
+                            style: Theme.of(context).textTheme.titleSmall?.copyWith(
+                              fontWeight: FontWeight.w600,
+                              color: Theme.of(context)
+                                  .colorScheme
+                                  .primary
+                                  .withOpacity(0.5),
+                            )
                         ),
                       ],
                     ),
@@ -230,7 +249,34 @@ class _MobileScaffoldViewState extends State<MobileScaffoldView> {
             const SkillSection(),
             SizedBox(height: 0.078 * h,),
             const CareerSection(),
+            SizedBox(height: 0.078 * h,),
+            const TestimonialSection(),
+            SizedBox(height: 0.078 * h,),
+            ContactSection(scrollController: scrollController),
+            SizedBox(height: 0.078 * h,),
+            const FooterSection(),
           ],
+        ),
+      ),
+      floatingActionButton: AnimatedOpacity(
+        duration: const Duration(milliseconds: 300),  //show/hide animation
+        opacity: showBtn ? 1.0:0.0,
+        child: FloatingActionButton(
+          onPressed: () {
+            scrollController.animateTo(
+                0,
+                duration: const Duration(milliseconds: 500),
+                curve: Curves.fastOutSlowIn
+            );
+          },
+          backgroundColor: Theme.of(context).colorScheme.primary.withOpacity(
+            0.5
+          ),
+          child: Icon(
+            Icons.arrow_upward,
+            size: 0.03 * h,
+            color: Colors.white,
+          ),
         ),
       ),
     );
