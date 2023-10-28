@@ -33,7 +33,7 @@ class AboutMeSection extends StatelessWidget {
             height: 0.03 * h,
           ),
           Container(
-            padding: const EdgeInsets.all(10),
+            padding: EdgeInsets.all(0.008 * w),
             height: 0.06 * h,
             width: 0.42 * w,
             decoration: BoxDecoration(

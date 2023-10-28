@@ -24,7 +24,7 @@ class SkillSection extends StatelessWidget {
               Align(
                 alignment: Alignment.topLeft,
                 child: Container(
-                  padding: const EdgeInsets.all(10),
+                  padding: EdgeInsets.all(0.008 * w),
                   height: 0.06 * h,
                   width: 0.3 * w,
                   decoration: BoxDecoration(
@@ -49,8 +49,8 @@ class SkillSection extends StatelessWidget {
               Text("Technologies \nand skills",
                 style: Theme.of(context).textTheme.headlineSmall?.copyWith(
                   fontWeight: FontWeight.w900,
-                  fontSize: 26,
-                  height: 1.2,),
+                  height: 1.2,
+                ),
               ),
               SizedBox(height: 0.018 * h,),
               Text(
@@ -78,7 +78,6 @@ class SkillSection extends StatelessWidget {
             },
           ),
         ),
-        SizedBox(height: 0.03 * h)
       ],
     );
   }

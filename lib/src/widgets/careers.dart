@@ -25,7 +25,7 @@ class CareerSection extends StatelessWidget {
               Align(
                 alignment: Alignment.topLeft,
                 child: Container(
-                  padding: const EdgeInsets.all(10),
+                  padding: EdgeInsets.all(0.008 * w),
                   height: 0.06 * h,
                   width: 0.39 * w,
                   decoration: BoxDecoration(
@@ -50,8 +50,8 @@ class CareerSection extends StatelessWidget {
               Text("Experience \nuntil today",
                 style: Theme.of(context).textTheme.headlineSmall?.copyWith(
                   fontWeight: FontWeight.w900,
-                  fontSize: 26,
-                  height: 1.2,),
+                  height: 1.2,
+                ),
               ),
               SizedBox(height: 0.018 * h,),
               Text(
@@ -70,7 +70,7 @@ class CareerSection extends StatelessWidget {
         ),
         SizedBox(height: 0.02 * h,),
         SizedBox(
-          height: 0.2 * h,
+          height: 0.22 * h,
           width: double.infinity,
           child: ListView.builder(
             physics: const BouncingScrollPhysics(),
@@ -109,7 +109,7 @@ class CareerSection extends StatelessWidget {
                       ),
                       textScaleFactor: 1,
                     ),
-                    SizedBox(height: 0.016 * h,),
+                    const Spacer(),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [

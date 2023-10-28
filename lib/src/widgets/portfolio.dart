@@ -24,7 +24,7 @@ class PortfolioSection extends StatelessWidget {
               Align(
                 alignment: Alignment.topLeft,
                 child: Container(
-                  padding: const EdgeInsets.all(10),
+                  padding: EdgeInsets.all(0.008 * w),
                   height: 0.06 * h,
                   width: 0.4 * w,
                   decoration: BoxDecoration(
@@ -49,8 +49,8 @@ class PortfolioSection extends StatelessWidget {
               Text("Works \nand projects",
                 style: Theme.of(context).textTheme.headlineSmall?.copyWith(
                   fontWeight: FontWeight.w900,
-                  fontSize: 26,
-                  height: 1,),
+                  height: 1,
+                ),
               ),
             ],
           ),
@@ -66,7 +66,7 @@ class PortfolioSection extends StatelessWidget {
             itemBuilder: (context, index) {
               final project = myProjects[index];
               return Container(
-                margin: index == myProjects.length ? EdgeInsets.only(left: 0.08 * w, right: 0.08 * w) : EdgeInsets.only(left: 0.08 * w),
+                margin: myProjects[index].title == myProjects.last.title ? EdgeInsets.only(left: 0.08 * w, right: 0.08 * w) : EdgeInsets.only(left: 0.08 * w),
                 padding: EdgeInsets.symmetric(horizontal: 0.06 * w),
                 width: 0.75 * w,
                 decoration: BoxDecoration(
