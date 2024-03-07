@@ -11,10 +11,9 @@ class _HomePageState extends State<HomePage> {
   int selectedIndex = 0;
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 120, vertical: 20),
-      constraints: BoxConstraints(maxHeight: 989, minHeight: 700),
+      padding: const EdgeInsets.symmetric(horizontal: 120, vertical: 20),
+      constraints: const BoxConstraints(maxHeight: 989, minHeight: 700),
       width: double.infinity,
       decoration: BoxDecoration(
         color: Theme.of(context).colorScheme.background,
@@ -22,7 +21,7 @@ class _HomePageState extends State<HomePage> {
       child: Column(
         children: [
           Container(
-            padding: EdgeInsets.symmetric(horizontal: 20),
+            padding: const EdgeInsets.symmetric(horizontal: 20),
             height: 50,
             width: double.infinity,
             decoration: BoxDecoration(
@@ -32,7 +31,7 @@ class _HomePageState extends State<HomePage> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text("Bishal Rumba"),
+                const Text("Bishal Rumba"),
                 SizedBox(
                   width: 400,
                   height: 30,

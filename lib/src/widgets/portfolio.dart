@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:portfolio_web_app/src/utils/constants/export.dart';
-
-
-
 
 class PortfolioSection extends StatelessWidget {
   const PortfolioSection({super.key});
@@ -28,34 +24,41 @@ class PortfolioSection extends StatelessWidget {
                   height: 0.06 * h,
                   width: 0.4 * w,
                   decoration: BoxDecoration(
-                    color: Theme.of(context).colorScheme.primary.withOpacity(0.1),
+                    color:
+                        Theme.of(context).colorScheme.primary.withOpacity(0.1),
                     borderRadius: BorderRadius.circular(0.02 * w),
                   ),
                   child: Center(
-                    child: Text('🔗 Portfolio',
+                    child: Text(
+                      '🔗 Portfolio',
                       style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                        fontSize: 20,
-                        fontWeight: FontWeight.w900,
-                        color: Theme.of(context)
-                            .colorScheme
-                            .primary
-                            .withOpacity(0.7),
-                      ),
+                            fontSize: 20,
+                            fontWeight: FontWeight.w900,
+                            color: Theme.of(context)
+                                .colorScheme
+                                .primary
+                                .withOpacity(0.7),
+                          ),
                     ),
                   ),
                 ),
               ),
-              SizedBox(height: 0.028 * h,),
-              Text("Works \nand projects",
+              SizedBox(
+                height: 0.028 * h,
+              ),
+              Text(
+                "Works \nand projects",
                 style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-                  fontWeight: FontWeight.w900,
-                  height: 1,
-                ),
+                      fontWeight: FontWeight.w900,
+                      height: 1,
+                    ),
               ),
             ],
           ),
         ),
-        SizedBox(height: 0.03 * h,),
+        SizedBox(
+          height: 0.03 * h,
+        ),
         SizedBox(
           height: 0.45 * h,
           width: double.infinity,
@@ -66,55 +69,69 @@ class PortfolioSection extends StatelessWidget {
             itemBuilder: (context, index) {
               final project = myProjects[index];
               return Container(
-                margin: myProjects[index].title == myProjects.last.title ? EdgeInsets.only(left: 0.08 * w, right: 0.08 * w) : EdgeInsets.only(left: 0.08 * w),
+                margin: myProjects[index].title == myProjects.last.title
+                    ? EdgeInsets.only(left: 0.08 * w, right: 0.08 * w)
+                    : EdgeInsets.only(left: 0.08 * w),
                 padding: EdgeInsets.symmetric(horizontal: 0.06 * w),
                 width: 0.75 * w,
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(16),
-                  border: Border.all(
-                    color: Theme.of(context).colorScheme.primary.withOpacity(0.5),
-                    width: 1,
-                  )
-                ),
+                    borderRadius: BorderRadius.circular(16),
+                    border: Border.all(
+                      color: Theme.of(context)
+                          .colorScheme
+                          .primary
+                          .withOpacity(0.5),
+                      width: 1,
+                    )),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    SizedBox(height: 0.03 * h,),
+                    SizedBox(
+                      height: 0.03 * h,
+                    ),
                     Text(
                       project.title,
                       style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                        fontWeight: FontWeight.w800,
-                      ),
+                            fontWeight: FontWeight.w800,
+                          ),
                     ),
-                    SizedBox(height: 0.006 * h,),
+                    SizedBox(
+                      height: 0.006 * h,
+                    ),
                     Text(
                       project.description,
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                       style: Theme.of(context).textTheme.bodyMedium,
-                      textScaleFactor: 1,
                     ),
-                    SizedBox(height: 0.008 * h,),
+                    SizedBox(
+                      height: 0.008 * h,
+                    ),
                     Wrap(
                       runSpacing: 10,
                       spacing: 12,
                       children: List.generate(
                           project.language.length,
-                              (index) => Chip(
-                                label: Text(project.language[index],),
+                          (index) => Chip(
+                                label: Text(
+                                  project.language[index],
+                                ),
                               )),
                     ),
-                    SizedBox(height: 0.02 * h,),
+                    SizedBox(
+                      height: 0.02 * h,
+                    ),
                     Expanded(
                       child: Container(
                         decoration: BoxDecoration(
-                          color: Theme.of(context).colorScheme.secondary,
-                          borderRadius: BorderRadius.circular(8)
-                        ),
+                            color: Theme.of(context).colorScheme.secondary,
+                            borderRadius: BorderRadius.circular(8)),
                         // child: SvgPicture.asset(project.imgUrl),
                       ),
                     ),
-                    SizedBox(height: 0.02 * h,),
+                    SizedBox(
+                      height: 0.02 * h,
+                    ),
                   ],
                 ),
               );

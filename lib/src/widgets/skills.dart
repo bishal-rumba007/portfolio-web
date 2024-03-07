@@ -2,9 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:portfolio_web_app/src/utils/constants/export.dart';
 
-
-
-
 class SkillSection extends StatelessWidget {
   const SkillSection({super.key});
 
@@ -28,40 +25,48 @@ class SkillSection extends StatelessWidget {
                   height: 0.06 * h,
                   width: 0.3 * w,
                   decoration: BoxDecoration(
-                    color: Theme.of(context).colorScheme.primary.withOpacity(0.1),
+                    color:
+                        Theme.of(context).colorScheme.primary.withOpacity(0.1),
                     borderRadius: BorderRadius.circular(0.02 * w),
                   ),
                   child: Center(
-                    child: Text('🧑‍💻 Skills ',
+                    child: Text(
+                      '🧑‍💻 Skills ',
                       style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                        fontSize: 20,
-                        fontWeight: FontWeight.w900,
-                        color: Theme.of(context)
-                            .colorScheme
-                            .primary
-                            .withOpacity(0.7),
-                      ),
+                            fontSize: 20,
+                            fontWeight: FontWeight.w900,
+                            color: Theme.of(context)
+                                .colorScheme
+                                .primary
+                                .withOpacity(0.7),
+                          ),
                     ),
                   ),
                 ),
               ),
-              SizedBox(height: 0.028 * h,),
-              Text("Technologies \nand skills",
-                style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-                  fontWeight: FontWeight.w900,
-                  height: 1.2,
-                ),
+              SizedBox(
+                height: 0.028 * h,
               ),
-              SizedBox(height: 0.018 * h,),
               Text(
-               "Techs I use Day today",
+                "Technologies \nand skills",
+                style: Theme.of(context).textTheme.headlineSmall?.copyWith(
+                      fontWeight: FontWeight.w900,
+                      height: 1.2,
+                    ),
+              ),
+              SizedBox(
+                height: 0.018 * h,
+              ),
+              Text(
+                "Techs I use Day today",
                 style: Theme.of(context).textTheme.bodyMedium,
-                textScaleFactor: 1,
               ),
             ],
           ),
         ),
-        SizedBox(height: 0.02 * h,),
+        SizedBox(
+          height: 0.02 * h,
+        ),
         SizedBox(
           height: 0.1 * h,
           width: double.infinity,
@@ -71,8 +76,9 @@ class SkillSection extends StatelessWidget {
             itemCount: techList.length,
             itemBuilder: (context, index) {
               return Container(
-                margin: techList[index] == techList.last ? EdgeInsets.symmetric(horizontal: 0.08 * w) :
-                 EdgeInsets.only(left: 0.08 * w),
+                margin: techList[index] == techList.last
+                    ? EdgeInsets.symmetric(horizontal: 0.08 * w)
+                    : EdgeInsets.only(left: 0.08 * w),
                 child: SvgPicture.asset(techList[index]),
               );
             },

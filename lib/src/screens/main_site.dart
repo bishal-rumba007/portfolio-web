@@ -11,7 +11,7 @@ class MainSite extends StatefulWidget {
 class _MainSiteState extends State<MainSite> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       body: SingleChildScrollView(
         child: Column(
           children: [HomePage()],

@@ -1,9 +1,3 @@
-
-
-
-import 'package:flutter/cupertino.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-
 List<String> techList = [
   "assets/icons/flutter.svg",
   "assets/icons/dart.svg",

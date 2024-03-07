@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio_web_app/src/utils/constants/export.dart';
 
-
 class AboutMeSection extends StatelessWidget {
   const AboutMeSection({super.key});
 
@@ -24,9 +23,7 @@ class AboutMeSection extends StatelessWidget {
                   color: Theme.of(context).colorScheme.primary.withOpacity(0.1),
                   borderRadius: BorderRadius.circular(0.3 * h),
                   image: const DecorationImage(
-                      image: AssetImage("assets/me.png")
-                  )
-              ),
+                      image: AssetImage("assets/me.png"))),
             ),
           ),
           SizedBox(
@@ -41,15 +38,16 @@ class AboutMeSection extends StatelessWidget {
               borderRadius: BorderRadius.circular(0.02 * w),
             ),
             child: Center(
-              child: Text('🧐 About me',
+              child: Text(
+                '🧐 About me',
                 style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                  fontSize: 20,
-                  fontWeight: FontWeight.w900,
-                  color: Theme.of(context)
-                      .colorScheme
-                      .primary
-                      .withOpacity(0.7),
-                ),
+                      fontSize: 20,
+                      fontWeight: FontWeight.w900,
+                      color: Theme.of(context)
+                          .colorScheme
+                          .primary
+                          .withOpacity(0.7),
+                    ),
               ),
             ),
           ),
@@ -59,13 +57,11 @@ class AboutMeSection extends StatelessWidget {
           Text(
             AppString.aboutMe,
             style: Theme.of(context).textTheme.bodyMedium,
-            textScaleFactor: 1,
             textAlign: TextAlign.justify,
           ),
           SizedBox(
             height: 0.03 * h,
           ),
-
         ],
       ),
     );

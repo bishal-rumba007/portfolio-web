@@ -1,10 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:portfolio_web_app/src/utils/constants/experience_list.dart';
-import 'package:portfolio_web_app/src/utils/constants/export.dart';
-
-
-
 
 class CareerSection extends StatelessWidget {
   const CareerSection({super.key});
@@ -29,46 +24,58 @@ class CareerSection extends StatelessWidget {
                   height: 0.06 * h,
                   width: 0.39 * w,
                   decoration: BoxDecoration(
-                    color: Theme.of(context).colorScheme.primary.withOpacity(0.1),
+                    color:
+                        Theme.of(context).colorScheme.primary.withOpacity(0.1),
                     borderRadius: BorderRadius.circular(0.02 * w),
                   ),
                   child: Center(
-                    child: Text('💼 Career',
+                    child: Text(
+                      '💼 Career',
                       style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                        fontSize: 20,
-                        fontWeight: FontWeight.w900,
-                        color: Theme.of(context)
-                            .colorScheme
-                            .primary
-                            .withOpacity(0.7),
-                      ),
+                            fontSize: 20,
+                            fontWeight: FontWeight.w900,
+                            color: Theme.of(context)
+                                .colorScheme
+                                .primary
+                                .withOpacity(0.7),
+                          ),
                     ),
                   ),
                 ),
               ),
-              SizedBox(height: 0.028 * h,),
-              Text("Experience \nuntil today",
-                style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-                  fontWeight: FontWeight.w900,
-                  height: 1.2,
-                ),
+              SizedBox(
+                height: 0.028 * h,
               ),
-              SizedBox(height: 0.018 * h,),
+              Text(
+                "Experience \nuntil today",
+                style: Theme.of(context).textTheme.headlineSmall?.copyWith(
+                      fontWeight: FontWeight.w900,
+                      height: 1.2,
+                    ),
+              ),
+              SizedBox(
+                height: 0.018 * h,
+              ),
               Text(
                 "Area of \nProfession",
-                style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                  fontWeight: FontWeight.w900
-                ),
-                textScaleFactor: 1,
+                style: Theme.of(context)
+                    .textTheme
+                    .titleMedium
+                    ?.copyWith(fontWeight: FontWeight.w900),
               ),
-              SizedBox(height: 0.006 * h,),
-              Text("2021 · Currently",
+              SizedBox(
+                height: 0.006 * h,
+              ),
+              Text(
+                "2021 · Currently",
                 style: Theme.of(context).textTheme.bodyMedium,
               ),
             ],
           ),
         ),
-        SizedBox(height: 0.02 * h,),
+        SizedBox(
+          height: 0.02 * h,
+        ),
         SizedBox(
           height: 0.22 * h,
           width: double.infinity,
@@ -79,35 +86,41 @@ class CareerSection extends StatelessWidget {
             itemBuilder: (context, index) {
               final data = experience[index];
               return Container(
-                margin: experience[index].title == experience.last.title ? EdgeInsets.symmetric(horizontal: 0.07 * w) :
-                EdgeInsets.only(left: 0.07 * w),
+                margin: experience[index].title == experience.last.title
+                    ? EdgeInsets.symmetric(horizontal: 0.07 * w)
+                    : EdgeInsets.only(left: 0.07 * w),
                 padding: EdgeInsets.all(0.04 * w),
                 width: 0.78 * w,
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
                     border: Border.all(
-                      color: Theme.of(context).colorScheme.primary.withOpacity(0.5),
+                      color: Theme.of(context)
+                          .colorScheme
+                          .primary
+                          .withOpacity(0.5),
                       width: 1,
-                    )
-                ),
+                    )),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(data.title,
-                      style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                        fontWeight: FontWeight.w800,
-                        height: 1
-                      ),
+                    Text(
+                      data.title,
+                      style: Theme.of(context)
+                          .textTheme
+                          .bodyLarge
+                          ?.copyWith(fontWeight: FontWeight.w800, height: 1),
                     ),
-                    SizedBox(height: 0.01 * h,),
+                    SizedBox(
+                      height: 0.01 * h,
+                    ),
                     Text(
                       data.description,
                       maxLines: 3,
                       overflow: TextOverflow.ellipsis,
-                      style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                        height: 1.1
-                      ),
-                      textScaleFactor: 1,
+                      style: Theme.of(context)
+                          .textTheme
+                          .bodyMedium
+                          ?.copyWith(height: 1.1),
                     ),
                     const Spacer(),
                     Row(
@@ -115,16 +128,20 @@ class CareerSection extends StatelessWidget {
                       children: [
                         Text(
                           data.duration,
-                          style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                            fontWeight: FontWeight.w800,
-                            color: Theme.of(context).colorScheme.primary
-                          ),
+                          style: Theme.of(context)
+                              .textTheme
+                              .bodyMedium
+                              ?.copyWith(
+                                  fontWeight: FontWeight.w800,
+                                  color: Theme.of(context).colorScheme.primary),
                         ),
                         Text(
                           "${data.from} · ${data.to}",
-                          style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                              color: Theme.of(context).colorScheme.primary
-                          ),
+                          style: Theme.of(context)
+                              .textTheme
+                              .bodyMedium
+                              ?.copyWith(
+                                  color: Theme.of(context).colorScheme.primary),
                         ),
                       ],
                     ),
