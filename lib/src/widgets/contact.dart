@@ -1,11 +1,33 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:portfolio_web_app/src/utils/constants/export.dart';
+import 'package:portfolio_web_app/src/utils/helpers/launch_app.dart';
 
-class ContactSection extends StatelessWidget {
+class ContactSection extends StatefulWidget {
   const ContactSection({super.key, required this.scrollController});
   final ScrollController scrollController;
+
+  @override
+  State<ContactSection> createState() => _ContactSectionState();
+}
+
+class _ContactSectionState extends State<ContactSection> {
+  void copyToClipboard(BuildContext context, String textCopy) {
+    Clipboard.setData(ClipboardData(text: textCopy));
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        behavior: SnackBarBehavior.floating,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10),
+        ),
+        duration: const Duration(seconds: 2),
+        margin: const EdgeInsets.symmetric(horizontal: 18, vertical: 80),
+        content: const Text('Text copied to clipboard'),
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -63,13 +85,15 @@ class ContactSection extends StatelessWidget {
                 height: 0.055 * h,
                 width: 0.5 * w,
                 child: OutlinedButton(
-                  onPressed: () {},
+                  onPressed: () async {
+                    await launchWhatsAppUrl();
+                  },
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Icon(
-                        FontAwesomeIcons.viber,
+                        FontAwesomeIcons.whatsapp,
                         size: 0.03 * h,
                         color: Theme.of(context)
                             .colorScheme
@@ -96,10 +120,15 @@ class ContactSection extends StatelessWidget {
               SizedBox(
                 height: 0.03 * h,
               ),
-              SvgPicture.asset(
-                "assets/icons/send.svg",
-                height: 0.04 * h,
-                width: 0.04 * h,
+              InkWell(
+                onTap: () async {
+                  await launchEmailUrl();
+                },
+                child: SvgPicture.asset(
+                  "assets/icons/send.svg",
+                  height: 0.04 * h,
+                  width: 0.04 * h,
+                ),
               ),
               SizedBox(
                 height: 0.01 * h,
@@ -120,7 +149,9 @@ class ContactSection extends StatelessWidget {
                         ?.copyWith(fontSize: 16),
                   ),
                   IconButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      copyToClipboard(context, AppString.email);
+                    },
                     style: IconButton.styleFrom(
                       iconSize: 0.026 * h,
                     ),
@@ -139,7 +170,7 @@ class ContactSection extends StatelessWidget {
               ),
               InkWell(
                 onTap: () {
-                  scrollController.animateTo(0, //scroll offset to go
+                  widget.scrollController.animateTo(0, //scroll offset to go
                       duration: const Duration(
                           milliseconds: 500), //duration of scroll
                       curve: Curves.fastOutSlowIn //scroll type

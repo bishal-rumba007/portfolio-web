@@ -3,8 +3,8 @@ import 'package:flutter_svg/svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio_web_app/src/themes/color.dart';
+import 'package:portfolio_web_app/src/utils/helpers/launch_app.dart';
 import 'package:portfolio_web_app/src/widgets/export.dart';
-
 
 class MobileScaffoldView extends StatefulWidget {
   const MobileScaffoldView({super.key});
@@ -20,12 +20,12 @@ class _MobileScaffoldViewState extends State<MobileScaffoldView> {
   void initState() {
     scrollController.addListener(() {
       double showOffset = 5.0;
-      if(scrollController.offset > showOffset){
+      if (scrollController.offset > showOffset) {
         showBtn = true;
         setState(() {
           //update state
         });
-      }else{
+      } else {
         showBtn = false;
         setState(() {
           //update state
@@ -121,15 +121,16 @@ class _MobileScaffoldViewState extends State<MobileScaffoldView> {
                     SizedBox(
                       width: 0.02 * w,
                     ),
-                    Text('Greetings',
-                        style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                    Text(
+                      'Greetings',
+                      style: Theme.of(context).textTheme.titleLarge?.copyWith(
                             fontSize: 20,
                             fontWeight: FontWeight.w900,
                             color: Theme.of(context)
                                 .colorScheme
                                 .primary
                                 .withOpacity(0.7),
-                        ),
+                          ),
                     ),
                   ],
                 ),
@@ -142,11 +143,13 @@ class _MobileScaffoldViewState extends State<MobileScaffoldView> {
               alignment: Alignment.bottomLeft,
               child: Padding(
                 padding: EdgeInsets.only(left: 0.10 * w),
-                child: Text("Bishal \nRumba",
-                    style: Theme.of(context).textTheme.displayLarge?.copyWith(
+                child: Text(
+                  "Bishal \nRumba",
+                  style: Theme.of(context).textTheme.displayLarge?.copyWith(
                         fontWeight: FontWeight.w900,
                         fontSize: 45,
-                        height: 0.9,),
+                        height: 0.9,
+                      ),
                 ),
               ),
             ),
@@ -202,12 +205,14 @@ class _MobileScaffoldViewState extends State<MobileScaffoldView> {
                     width: 0.05 * w,
                   ),
                   OutlinedButton(
-                    onPressed: () {},
+                    onPressed: () async {
+                      await launchWhatsAppUrl();
+                    },
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Icon(
-                          FontAwesomeIcons.viber,
+                          FontAwesomeIcons.whatsapp,
                           size: 22,
                           color: Theme.of(context)
                               .colorScheme
@@ -218,14 +223,15 @@ class _MobileScaffoldViewState extends State<MobileScaffoldView> {
                           width: 0.02 * w,
                         ),
                         Text(
-                            "Contact Me",
-                            style: Theme.of(context).textTheme.titleSmall?.copyWith(
-                              fontWeight: FontWeight.w600,
-                              color: Theme.of(context)
-                                  .colorScheme
-                                  .primary
-                                  .withOpacity(0.5),
-                            )
+                          "Contact Me",
+                          style:
+                              Theme.of(context).textTheme.titleSmall?.copyWith(
+                                    fontWeight: FontWeight.w600,
+                                    color: Theme.of(context)
+                                        .colorScheme
+                                        .primary
+                                        .withOpacity(0.5),
+                                  ),
                         ),
                       ],
                     ),
@@ -245,33 +251,40 @@ class _MobileScaffoldViewState extends State<MobileScaffoldView> {
               height: 0.05 * h,
             ),
             const PortfolioSection(),
-            SizedBox(height: 0.078 * h,),
+            SizedBox(
+              height: 0.078 * h,
+            ),
             const SkillSection(),
-            SizedBox(height: 0.078 * h,),
+            SizedBox(
+              height: 0.078 * h,
+            ),
             const CareerSection(),
-            SizedBox(height: 0.078 * h,),
+            SizedBox(
+              height: 0.078 * h,
+            ),
             const TestimonialSection(),
-            SizedBox(height: 0.078 * h,),
+            SizedBox(
+              height: 0.078 * h,
+            ),
             ContactSection(scrollController: scrollController),
-            SizedBox(height: 0.078 * h,),
+            SizedBox(
+              height: 0.078 * h,
+            ),
             const FooterSection(),
           ],
         ),
       ),
       floatingActionButton: AnimatedOpacity(
-        duration: const Duration(milliseconds: 300),  //show/hide animation
-        opacity: showBtn ? 1.0:0.0,
+        duration: const Duration(milliseconds: 300), //show/hide animation
+        opacity: showBtn ? 1.0 : 0.0,
         child: FloatingActionButton(
           onPressed: () {
-            scrollController.animateTo(
-                0,
+            scrollController.animateTo(0,
                 duration: const Duration(milliseconds: 500),
-                curve: Curves.fastOutSlowIn
-            );
+                curve: Curves.fastOutSlowIn);
           },
-          backgroundColor: Theme.of(context).colorScheme.primary.withOpacity(
-            0.5
-          ),
+          backgroundColor:
+              Theme.of(context).colorScheme.primary.withOpacity(0.5),
           child: Icon(
             Icons.arrow_upward,
             size: 0.03 * h,

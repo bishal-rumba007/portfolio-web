@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:portfolio_web_app/src/utils/constants/export.dart';
 
 class PortfolioSection extends StatelessWidget {
@@ -126,7 +127,7 @@ class PortfolioSection extends StatelessWidget {
                         decoration: BoxDecoration(
                             color: Theme.of(context).colorScheme.secondary,
                             borderRadius: BorderRadius.circular(8)),
-                        // child: SvgPicture.asset(project.imgUrl),
+                        child: SvgPicture.asset(project.imgUrl),
                       ),
                     ),
                     SizedBox(

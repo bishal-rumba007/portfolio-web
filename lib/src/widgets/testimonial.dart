@@ -21,9 +21,9 @@ class TestimonialSection extends StatelessWidget {
               Align(
                 alignment: Alignment.topLeft,
                 child: Container(
-                  padding: EdgeInsets.all(0.008 * w),
+                  padding: EdgeInsets.all(0.002 * w),
                   height: 0.06 * h,
-                  width: 0.7 * w,
+                  width: 0.6 * w,
                   decoration: BoxDecoration(
                     color:
                         Theme.of(context).colorScheme.primary.withOpacity(0.1),
